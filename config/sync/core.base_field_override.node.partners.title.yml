@@ -1,0 +1,18 @@
+uuid: 06b57e98-db48-424d-b0f4-420d918459b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.partners
+id: node.partners.title
+field_name: title
+entity_type: node
+bundle: partners
+label: 'Partner Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

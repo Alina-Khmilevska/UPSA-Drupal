@@ -1,0 +1,17 @@
+uuid: 75920b69-5c66-4246-b2b3-e594b235c350
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+name: Partners
+type: partners
+description: ''
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

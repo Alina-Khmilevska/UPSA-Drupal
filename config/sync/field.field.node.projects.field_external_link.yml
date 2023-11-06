@@ -1,0 +1,23 @@
+uuid: b7fb8272-ef04-4a20-ad70-d2c3dfc7c602
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_external_link
+    - node.type.projects
+  module:
+    - link
+id: node.projects.field_external_link
+field_name: field_external_link
+entity_type: node
+bundle: projects
+label: 'External Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

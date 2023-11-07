@@ -1,0 +1,155 @@
+uuid: 310acfd8-c103-42f5-8a6c-cba8172ff61b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_social_links
+  module:
+    - social_media_links_field
+    - user
+id: user.user.field_social_links
+field_name: field_social_links
+entity_type: user
+bundle: user
+label: 'Social Links'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  iconset: 'fontawesome:2x'
+  platforms:
+    email:
+      description: ''
+      weight: '-10'
+      enabled: 0
+    facebook:
+      enabled: '1'
+      description: ''
+      weight: '-9'
+    bitbucket:
+      description: ''
+      weight: '-8'
+      enabled: 0
+    linkedin:
+      enabled: '1'
+      description: ''
+      weight: '-7'
+    vkontakte:
+      description: ''
+      weight: '-6'
+      enabled: 0
+    twitter:
+      enabled: '1'
+      description: ''
+      weight: '-5'
+    xing:
+      description: ''
+      weight: '-4'
+      enabled: 0
+    whatsapp:
+      description: ''
+      weight: '-3'
+      enabled: 0
+    tiktok:
+      enabled: '1'
+      description: ''
+      weight: '-2'
+    glassdoor:
+      description: ''
+      weight: '-1'
+      enabled: 0
+    pinterest:
+      description: ''
+      weight: '0'
+      enabled: 0
+    telegram:
+      enabled: '1'
+      description: ''
+      weight: '1'
+    flickr:
+      description: ''
+      weight: '2'
+      enabled: 0
+    contact:
+      description: ''
+      weight: '3'
+      enabled: 0
+    meetup:
+      description: ''
+      weight: '4'
+      enabled: 0
+    patreon:
+      description: ''
+      weight: '5'
+      enabled: 0
+    drupal:
+      description: ''
+      weight: '6'
+      enabled: 0
+    youtube:
+      description: ''
+      weight: '7'
+      enabled: 0
+    amazon:
+      description: ''
+      weight: '8'
+      enabled: 0
+    googleplay:
+      description: ''
+      weight: '9'
+      enabled: 0
+    slideshare:
+      description: ''
+      weight: '10'
+      enabled: 0
+    vimeo:
+      description: ''
+      weight: '11'
+      enabled: 0
+    tumblr:
+      description: ''
+      weight: '12'
+      enabled: 0
+    behance:
+      description: ''
+      weight: '13'
+      enabled: 0
+    github:
+      description: ''
+      weight: '14'
+      enabled: 0
+    mastodon:
+      description: ''
+      weight: '15'
+      enabled: 0
+    website:
+      enabled: '1'
+      description: ''
+      weight: '16'
+    instagram:
+      enabled: '1'
+      description: ''
+      weight: '17'
+    rss:
+      description: ''
+      weight: '18'
+      enabled: 0
+    googleplus:
+      description: ''
+      weight: '19'
+      enabled: 0
+    youtube_channel:
+      enabled: '1'
+      description: ''
+      weight: '20'
+    gitlab:
+      description: ''
+      weight: '21'
+      enabled: 0
+    goodreads:
+      description: ''
+      weight: '22'
+      enabled: 0
+field_type: social_media_links_field

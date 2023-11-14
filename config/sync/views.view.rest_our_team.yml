@@ -146,7 +146,7 @@ display:
           click_sort_column: target_id
           type: image_url
           settings:
-            image_style: max_650x650
+            image_style: ''
           group_column: ''
           group_columns: {  }
           group_rows: true

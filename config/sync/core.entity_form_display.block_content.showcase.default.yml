@@ -5,6 +5,7 @@ dependencies:
   config:
     - block_content.type.showcase
     - field.field.block_content.showcase.body
+    - field.field.block_content.showcase.field_endpoint
     - field.field.block_content.showcase.field_image
     - field.field.block_content.showcase.field_link
     - field.field.block_content.showcase.field_title
@@ -26,6 +27,14 @@ content:
       summary_rows: 3
       placeholder: ''
       show_summary: false
+    third_party_settings: {  }
+  field_endpoint:
+    type: string_textfield
+    weight: 26
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
     third_party_settings: {  }
   field_image:
     type: media_library_widget

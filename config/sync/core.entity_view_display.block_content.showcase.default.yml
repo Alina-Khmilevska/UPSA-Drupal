@@ -5,6 +5,7 @@ dependencies:
   config:
     - block_content.type.showcase
     - field.field.block_content.showcase.body
+    - field.field.block_content.showcase.field_endpoint
     - field.field.block_content.showcase.field_image
     - field.field.block_content.showcase.field_link
     - field.field.block_content.showcase.field_title
@@ -22,6 +23,14 @@ content:
     settings: {  }
     third_party_settings: {  }
     weight: 0
+    region: content
+  field_endpoint:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
     region: content
   field_image:
     type: entity_reference_entity_view

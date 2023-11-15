@@ -1,0 +1,18 @@
+uuid: 8f426650-bc45-476b-828d-dfe18e10948c
+langcode: en
+status: true
+dependencies:
+  module:
+    - serialization
+    - upsa_api
+    - user
+id: statistic_block_resource
+plugin_id: statistic_block_resource
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie

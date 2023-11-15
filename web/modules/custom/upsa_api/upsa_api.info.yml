@@ -1,0 +1,8 @@
+name: 'UPSA API'
+type: module
+description: 'Provides REST endpoints for UPSA content.'
+core_version_requirement: ^8 || ^9 || ^10
+package: Custom
+dependencies:
+  - rest:rest
+  - serialization:serialization

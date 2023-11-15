@@ -1,0 +1,9 @@
+services:
+  upsa_api.rest_resource:
+    class: Drupal\upsa_api\Plugin\rest\resource\ShowcaseBlockResource
+    tags:
+      - { name: 'rest.resource' }
+
+  upsa_api.helper:
+    class: Drupal\upsa_api\UpsaApiHelper
+    arguments: ['@entity_type.manager']

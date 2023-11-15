@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - block_content.type.statistic
+    - field.field.block_content.statistic.field_endpoint
     - field.field.block_content.statistic.field_item
   module:
     - paragraphs
@@ -12,6 +13,14 @@ targetEntityType: block_content
 bundle: statistic
 mode: default
 content:
+  field_endpoint:
+    type: string_textfield
+    weight: 26
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
   field_item:
     type: paragraphs
     weight: 26

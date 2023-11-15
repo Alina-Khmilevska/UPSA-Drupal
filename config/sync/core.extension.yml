@@ -76,6 +76,7 @@ module:
   tour: 0
   twig_tweak: 0
   update: 0
+  upsa_api: 0
   user: 0
   views_ui: 0
   workflows: 0

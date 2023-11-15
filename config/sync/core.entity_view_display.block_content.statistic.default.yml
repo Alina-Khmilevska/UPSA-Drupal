@@ -1,0 +1,24 @@
+uuid: 0a963371-6c83-4c7d-be52-f45f85de3f89
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.statistic
+    - field.field.block_content.statistic.field_item
+  module:
+    - entity_reference_revisions
+id: block_content.statistic.default
+targetEntityType: block_content
+bundle: statistic
+mode: default
+content:
+  field_item:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

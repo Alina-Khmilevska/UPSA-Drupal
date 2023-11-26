@@ -1,0 +1,7 @@
+name: UPSA Membership Requests
+type: module
+description: 'Provides an endpoint for membership requests.'
+core_version_requirement: ^10
+package: Custom
+dependencies:
+  - node

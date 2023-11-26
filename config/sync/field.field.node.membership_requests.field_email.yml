@@ -1,0 +1,19 @@
+uuid: 6cc26940-b8f1-4471-92d2-10c777413930
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_email
+    - node.type.membership_requests
+id: node.membership_requests.field_email
+field_name: field_email
+entity_type: node
+bundle: membership_requests
+label: Email
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

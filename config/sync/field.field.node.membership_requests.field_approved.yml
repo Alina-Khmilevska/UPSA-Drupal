@@ -1,0 +1,21 @@
+uuid: 899b7a69-6097-43bd-9a8b-b88d9510d7be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_approved
+    - node.type.membership_requests
+id: node.membership_requests.field_approved
+field_name: field_approved
+entity_type: node
+bundle: membership_requests
+label: Approved
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

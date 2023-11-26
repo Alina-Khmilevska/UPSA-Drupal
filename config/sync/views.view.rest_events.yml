@@ -213,7 +213,7 @@ display:
           click_sort_column: value
           type: text_trimmed
           settings:
-            trim_length: 250
+            trim_length: 150
           group_column: value
           group_columns: {  }
           group_rows: true

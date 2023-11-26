@@ -1,0 +1,18 @@
+uuid: edc195ad-cda5-46a1-8485-8af754c17b5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.membership_requests
+id: node.membership_requests.title
+field_name: title
+entity_type: node
+bundle: membership_requests
+label: 'Full Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

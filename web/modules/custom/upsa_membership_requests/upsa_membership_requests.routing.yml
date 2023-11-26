@@ -1,0 +1,8 @@
+upsa_membership_requests.post_data:
+  path: '/upsa-api/membership/create'
+  defaults:
+    _controller: '\Drupal\upsa_membership_requests\Controller\MembershipRequestsController::post_data'
+    _title: 'Membership Requests POST Endpoint'
+  methods: [POST]
+  requirements:
+    _permission: 'access content'

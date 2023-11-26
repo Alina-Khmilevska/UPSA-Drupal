@@ -4,11 +4,14 @@ status: true
 dependencies:
   config:
     - filter.format.restricted_html
+    - rest.resource.showcase_block_resource
+    - rest.resource.statistic_block_resource
   module:
     - comment
     - contact
     - filter
     - media
+    - rest
     - search
     - system
 _core:
@@ -21,6 +24,8 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'restful get showcase_block_resource'
+  - 'restful get statistic_block_resource'
   - 'search content'
   - 'use text format restricted_html'
   - 'view media'

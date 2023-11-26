@@ -1,0 +1,32 @@
+uuid: 76bf07c4-773e-4156-9f47-992bef8034c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.membership_requests.field_approved
+    - field.field.node.membership_requests.field_city
+    - field.field.node.membership_requests.field_educational_institution
+    - field.field.node.membership_requests.field_email
+    - field.field.node.membership_requests.field_name
+    - field.field.node.membership_requests.field_surname
+    - node.type.membership_requests
+  module:
+    - user
+id: node.membership_requests.teaser
+targetEntityType: node
+bundle: membership_requests
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_approved: true
+  field_city: true
+  field_educational_institution: true
+  field_email: true
+  field_name: true
+  field_surname: true

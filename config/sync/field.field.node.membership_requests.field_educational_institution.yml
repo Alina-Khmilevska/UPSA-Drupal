@@ -1,0 +1,19 @@
+uuid: e1387a39-1102-4bd3-99f1-fa60069d1aa2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_educational_institution
+    - node.type.membership_requests
+id: node.membership_requests.field_educational_institution
+field_name: field_educational_institution
+entity_type: node
+bundle: membership_requests
+label: 'Educational institution'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

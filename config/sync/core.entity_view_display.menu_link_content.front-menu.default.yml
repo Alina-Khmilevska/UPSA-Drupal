@@ -1,0 +1,31 @@
+uuid: abebb283-410c-4e0f-acaa-31c0b994ee21
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.front-menu.field_icon
+    - system.menu.front-menu
+  module:
+    - image
+id: menu_link_content.front-menu.default
+targetEntityType: menu_link_content
+bundle: front-menu
+mode: default
+content:
+  children:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_icon:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden: {  }

@@ -1,0 +1,40 @@
+uuid: ae1501e2-0e5f-4b06-aa35-61d7ed62ded3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.menu_link_content.front-menu.field_icon
+    - image.style.thumbnail
+    - system.menu.front-menu
+  module:
+    - image
+    - link
+    - menu_item_extras
+id: menu_link_content.front-menu.default
+targetEntityType: menu_link_content
+bundle: front-menu
+mode: default
+content:
+  field_icon:
+    type: image_image
+    weight: 21
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: -5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  view_mode:
+    type: menu_item_extras_view_mode_selector_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

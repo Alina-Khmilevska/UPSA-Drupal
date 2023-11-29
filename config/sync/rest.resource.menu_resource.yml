@@ -1,0 +1,18 @@
+uuid: 469a2626-be43-4b59-ace1-12c1652076dc
+langcode: en
+status: true
+dependencies:
+  module:
+    - serialization
+    - upsa_api
+    - user
+id: menu_resource
+plugin_id: menu_resource
+granularity: resource
+configuration:
+  methods:
+    - GET
+  formats:
+    - json
+  authentication:
+    - cookie

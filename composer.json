@@ -30,6 +30,7 @@
         "drupal/gin_login": "^2.0",
         "drupal/gin_toolbar": "^1.0@RC",
         "drupal/mailsystem": "^4.4",
+        "drupal/menu_item_extras": "^3.0",
         "drupal/paragraphs": "^1.16",
         "drupal/pathauto": "^1.12",
         "drupal/restui": "^1.21",

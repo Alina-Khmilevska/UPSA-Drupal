@@ -4,6 +4,7 @@ status: true
 dependencies:
   config:
     - filter.format.restricted_html
+    - rest.resource.menu_resource
     - rest.resource.showcase_block_resource
     - rest.resource.statistic_block_resource
   module:
@@ -24,6 +25,7 @@ permissions:
   - 'access comments'
   - 'access content'
   - 'access site-wide contact form'
+  - 'restful get menu_resource'
   - 'restful get showcase_block_resource'
   - 'restful get statistic_block_resource'
   - 'search content'

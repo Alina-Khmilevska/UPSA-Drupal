@@ -6,37 +6,50 @@ use Drupal\node\NodeInterface;
  * Implements hook_node_insert().
  */
 function upsa_notifier_node_insert(NodeInterface $node) {
-  if ($node->bundle() === 'participant_of_the_event') {
-    // Get the admin email from the site configuration.
-    $admin_email = \Drupal::config('system.site')->get('mail');
+  if ($node->bundle() !== 'participant_of_the_event') {
+    return;
+  }
 
-    // Prepare the mail manager service.
-    $mail_manager = \Drupal::service('plugin.manager.mail');
-    $module = 'upsa_notifier';
-    $key = 'notify_admin';
-    $to = $admin_email;
-    $params['event'] = $node->get('field_event')->entity->label();
-    $params['title'] = $node->get('title')->value;
-    $params['email'] =  $node->get('field_email')->value;
-    $params['notes'] = $node->get('field_notes')->value;
-    $params['educational_institution'] = $node->get('field_educational_institution')->value;
+  $mail_manager = \Drupal::service('plugin.manager.mail');
+  $module = 'upsa_notifier';
+  $langcode = \Drupal::currentUser()->getPreferredLangcode();
 
+  // Common event data.
+  $event_data = [
+    'event' => $node->get('field_event')->entity->label(),
+    'email' => $node->get('field_email')->value,
+    'title' => $node->get('title')->value,
+    'notes' => $node->get('field_notes')->value,
+    'educational_institution' => $node->get('field_educational_institution')->value,
+  ];
 
-    $params['message'] = 'A new participant of the "' . $params['event'] .'" has been created.';
+  // Send email to admin.
+  send_upsa_notification($mail_manager, $module, 'notify_admin', $event_data, \Drupal::config('system.site')->get('mail'), $langcode, );
 
-    $langcode = \Drupal::currentUser()->getPreferredLangcode();
-    $send = TRUE;
-
-    // Send the email.
-    $result = $mail_manager->mail($module, $key, $to, $langcode, $params, NULL, $send);
-
-    if ($result['result'] !== TRUE) {
-      \Drupal::logger('email_notifier')->error('Mail not sent.');
-    } else {
-      \Drupal::logger('email_notifier')->info('Mail sent to admin for node creation.');
-    }
+  // Send email to participant if email is provided.
+  $participant_email = $node->get('field_email')->value;
+  if (!empty($participant_email)) {
+    send_upsa_notification($mail_manager, $module, 'notify_admin', $event_data, $participant_email, $langcode, );
   }
 }
+
+/**
+ * Helper function to send UPSA notifications.
+ */
+function send_upsa_notification($mail_manager, $module, $key, $event_data, $recipient_email, $langcode, bool $is_admin = FALSE) {
+  $params = $event_data;
+  $params['message'] = $is_admin ? 'A new participant of the "'. $params['event'] . '" has been created.'
+    : 'You have been registered as a participant of the "' . $params['event'] . '".';
+
+  $result = $mail_manager->mail($module, $key, $recipient_email, $langcode, $params, NULL, TRUE);
+
+  if ($result['result'] !== TRUE) {
+    \Drupal::logger('upsa_notifier')->error("Mail not sent to {$recipient_email}.");
+  } else {
+    \Drupal::logger('upsa_notifier')->info("Mail sent to {$recipient_email} for node creation.");
+  }
+}
+
 
 /**
  * Implements hook_mail().
@@ -72,7 +85,14 @@ function upsa_notifier_mail($key, &$message, $params) {
 function upsa_notifier_theme($existing, $type, $theme, $path) {
   return [
     'upsa_notifier_email' => [
-      'variables' => ['message' => NULL, 'event' => NULL, 'title' => NULL, 'email' => NULL, 'notes' => NULL, 'educational_institution' => NULL],
+      'variables' => [
+        'message' => NULL,
+        'event' => NULL,
+        'title' => NULL,
+        'email' => NULL,
+        'notes' => NULL,
+        'educational_institution' => NULL
+      ],
       'template' => 'email-template',
       'path' => $path . '/templates',
     ],

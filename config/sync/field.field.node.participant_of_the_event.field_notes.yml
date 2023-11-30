@@ -1,0 +1,19 @@
+uuid: 4397b0ac-1bd7-4585-82ee-0365a3def52a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_notes
+    - node.type.participant_of_the_event
+id: node.participant_of_the_event.field_notes
+field_name: field_notes
+entity_type: node
+bundle: participant_of_the_event
+label: Notes
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

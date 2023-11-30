@@ -1,0 +1,32 @@
+uuid: d00bb8c5-b462-41d4-bbc0-2b5abc856401
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.participant_of_the_event.field_educational_institution
+    - field.field.node.participant_of_the_event.field_email
+    - field.field.node.participant_of_the_event.field_event
+    - field.field.node.participant_of_the_event.field_name
+    - field.field.node.participant_of_the_event.field_notes
+    - field.field.node.participant_of_the_event.field_surname
+    - node.type.participant_of_the_event
+  module:
+    - user
+id: node.participant_of_the_event.teaser
+targetEntityType: node
+bundle: participant_of_the_event
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  field_educational_institution: true
+  field_email: true
+  field_event: true
+  field_name: true
+  field_notes: true
+  field_surname: true

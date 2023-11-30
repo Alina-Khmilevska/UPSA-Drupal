@@ -1,0 +1,19 @@
+uuid: fcc54be0-4c99-4fe6-9ec0-9d4105cc4662
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_surname
+    - node.type.participant_of_the_event
+id: node.participant_of_the_event.field_surname
+field_name: field_surname
+entity_type: node
+bundle: participant_of_the_event
+label: Surname
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

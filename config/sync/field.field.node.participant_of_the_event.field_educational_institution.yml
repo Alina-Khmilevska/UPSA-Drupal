@@ -1,0 +1,19 @@
+uuid: 0388476b-8e4a-4267-8dd2-8bfdaa8c745d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_educational_institution
+    - node.type.participant_of_the_event
+id: node.participant_of_the_event.field_educational_institution
+field_name: field_educational_institution
+entity_type: node
+bundle: participant_of_the_event
+label: 'Educational institution'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

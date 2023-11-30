@@ -79,6 +79,7 @@ module:
   update: 0
   upsa_api: 0
   upsa_membership_requests: 0
+  upsa_notifier: 0
   user: 0
   views_ui: 0
   workflows: 0

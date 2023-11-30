@@ -3,7 +3,7 @@ _core:
 langcode: en
 uuid: 1c5a5e12-15a8-4329-9fc7-0688b7141046
 name: 'My Drupal 9 Site'
-mail: admin@example.com
+mail: a.khmilevska@internetdevels.com
 slogan: ''
 page:
   403: ''

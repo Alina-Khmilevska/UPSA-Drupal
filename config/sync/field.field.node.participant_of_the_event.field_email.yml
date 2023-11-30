@@ -1,0 +1,19 @@
+uuid: fd8db68d-ea24-4376-9953-899a8b5973f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_email
+    - node.type.participant_of_the_event
+id: node.participant_of_the_event.field_email
+field_name: field_email
+entity_type: node
+bundle: participant_of_the_event
+label: Email
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

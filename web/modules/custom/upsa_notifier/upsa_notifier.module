@@ -1,0 +1,80 @@
+<?php
+
+use Drupal\node\NodeInterface;
+
+/**
+ * Implements hook_node_insert().
+ */
+function upsa_notifier_node_insert(NodeInterface $node) {
+  if ($node->bundle() === 'participant_of_the_event') {
+    // Get the admin email from the site configuration.
+    $admin_email = \Drupal::config('system.site')->get('mail');
+
+    // Prepare the mail manager service.
+    $mail_manager = \Drupal::service('plugin.manager.mail');
+    $module = 'upsa_notifier';
+    $key = 'notify_admin';
+    $to = $admin_email;
+    $params['event'] = $node->get('field_event')->entity->label();
+    $params['title'] = $node->get('title')->value;
+    $params['email'] =  $node->get('field_email')->value;
+    $params['notes'] = $node->get('field_notes')->value;
+    $params['educational_institution'] = $node->get('field_educational_institution')->value;
+
+
+    $params['message'] = 'A new participant of the "' . $params['event'] .'" has been created.';
+
+    $langcode = \Drupal::currentUser()->getPreferredLangcode();
+    $send = TRUE;
+
+    // Send the email.
+    $result = $mail_manager->mail($module, $key, $to, $langcode, $params, NULL, $send);
+
+    if ($result['result'] !== TRUE) {
+      \Drupal::logger('email_notifier')->error('Mail not sent.');
+    } else {
+      \Drupal::logger('email_notifier')->info('Mail sent to admin for node creation.');
+    }
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function upsa_notifier_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'notify_admin':
+      // Set the email subject.
+      $message['subject'] = t('New participant_of_the_event Node Created');
+
+      // Render the email body using the Twig template.
+      $renderable = [
+        '#theme' => 'upsa_notifier_email',
+        '#message' => $params['message'],
+        '#event' => $params['event'],
+        '#title' => $params['title'],
+        '#email' => $params['email'],
+        '#notes' => $params['notes'],
+        '#educational_institution' => $params['educational_institution'],
+      ];
+      $message['body'][] = \Drupal::service('renderer')->renderRoot($renderable);
+
+      // Set the email headers to send HTML mail.
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8';
+      break;
+  }
+}
+
+
+/**
+ * Implements hook_theme().
+ */
+function upsa_notifier_theme($existing, $type, $theme, $path) {
+  return [
+    'upsa_notifier_email' => [
+      'variables' => ['message' => NULL, 'event' => NULL, 'title' => NULL, 'email' => NULL, 'notes' => NULL, 'educational_institution' => NULL],
+      'template' => 'email-template',
+      'path' => $path . '/templates',
+    ],
+  ];
+}

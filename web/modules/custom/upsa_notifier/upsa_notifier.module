@@ -24,19 +24,22 @@ function upsa_notifier_node_insert(NodeInterface $node) {
   ];
 
   // Send email to admin.
-  send_upsa_notification($mail_manager, $module, 'notify_admin', $event_data, \Drupal::config('system.site')->get('mail'), $langcode, );
+  send_upsa_notification($mail_manager, $module, 'notify_admin', $event_data,
+    \Drupal::config('system.site')->get('mail'), $langcode, true);
 
   // Send email to participant if email is provided.
   $participant_email = $node->get('field_email')->value;
   if (!empty($participant_email)) {
-    send_upsa_notification($mail_manager, $module, 'notify_admin', $event_data, $participant_email, $langcode, );
+    send_upsa_notification($mail_manager, $module, 'notify_admin', $event_data,
+      $participant_email, $langcode, false);
   }
 }
 
 /**
  * Helper function to send UPSA notifications.
  */
-function send_upsa_notification($mail_manager, $module, $key, $event_data, $recipient_email, $langcode, bool $is_admin = FALSE) {
+function send_upsa_notification($mail_manager, $module, $key, $event_data,
+                                $recipient_email, $langcode, bool $is_admin = FALSE) {
   $params = $event_data;
   $params['message'] = $is_admin ? 'A new participant of the "'. $params['event'] . '" has been created.'
     : 'You have been registered as a participant of the "' . $params['event'] . '".';

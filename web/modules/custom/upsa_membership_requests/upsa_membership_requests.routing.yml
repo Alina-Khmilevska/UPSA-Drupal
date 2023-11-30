@@ -6,3 +6,12 @@ upsa_membership_requests.post_data:
   methods: [POST]
   requirements:
     _permission: 'access content'
+
+upsa_membership_requests.participant_data:
+  path: '/upsa-api/participant/create'
+  defaults:
+    _controller: '\Drupal\upsa_membership_requests\Controller\ParticipantEventController::post_data'
+    _title: 'Participant of the event POST Endpoint'
+  methods: [POST]
+  requirements:
+    _permission: 'access content'
